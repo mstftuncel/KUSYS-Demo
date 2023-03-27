@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    @await Html.PartialAsync("../Partial/Head.cshtml");
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+
+        @await Html.PartialAsync("../Partial/Navbar.cshtml");
+        @await Html.PartialAsync("../Partial/Sidebar.cshtml");
+            @RenderBody()
+        @await Html.PartialAsync("../Partial/Footer.cshtml");
+    </div>
+    <!-- ./wrapper -->
+    @await Html.PartialAsync("../Partial/Js.cshtml");
+    @await RenderSectionAsync("Scripts",required:false)
+</body>
+</html>

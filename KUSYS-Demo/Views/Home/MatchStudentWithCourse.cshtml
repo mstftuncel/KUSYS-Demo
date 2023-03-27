@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Student>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Match Student with Course</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">MatchStudentWithCourse</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+
+            <form method="post" action="/Home/MatchStudentWithCourse">
+                <div class="form-group">
+                    <label for="student-select">Select a Student:</label>
+                    <select class="form-control" id="student-select" name="studentId">
+                        @foreach (var student in Model)
+                        {
+                            <option value="@student.Id">@student.FirstName @student.LastName</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="course-select">Select a Course:</label>
+                    <select class="form-control" id="course-select" name="courseId">
+                        @foreach (var course in ViewBag.Courses)
+                        {
+                            <option value="@course.Id">@course.Name</option>
+                        }
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Match</button>
+            </form>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
